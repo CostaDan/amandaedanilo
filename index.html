@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanda & Danilo – 10/10/2026 💍</title>
+  <meta name="description"
+    content="Confirme sua presença no casamento de Amanda & Danilo – 10 de outubro de 2026, Almirante Tamandaré – PR." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="data:," />
+  <!-- Preconnect para reduzir latência de scripts externos -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- Pré-carregamento do hero image (melhora LCP) -->
+  <link rel="preload" as="image" href="assets/fundocasa.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-logo">A &amp; D</div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#informacoes">Informações</a></li>
+      <li><a href="#confirmacao">Confirmação</a></li>
+    </ul>
+    <a href="admin.html" class="nav-admin-link">Admin</a>
+  </nav>
+
+  <section class="hero" id="inicio">
+
+    <div class="hero-bg">
+      <picture>
+        <source srcset="assets/fundocasa.jpg" type="image/jpeg" />
+        <img src="assets/fundocasa.jpg" alt="Fundo decorativo do casamento" loading="eager" decoding="async" />
+      </picture>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+      <h1 class="hero-names">
+        <em>Amanda</em><br>&amp;<br><em>Danilo</em>
+      </h1>
+
+      <div class="hero-divider">✦</div>
+
+      <p class="hero-date">10 · 10 · 2026</p>
+    </div>
+
+    <button class="hero-scroll" onclick="document.getElementById('informacoes').scrollIntoView({behavior:'smooth'})">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </button>
+
+  </section>
+
+  <!-- ══════════════════════════════
+     SEÇÃO 2: INFORMAÇÕES
+══════════════════════════════ -->
+  <section id="informacoes">
+    <div class="section-inner" style="text-align:center">
+      <span class="section-tag fade-in">O Grande Dia</span>
+      <h2 class="section-title fade-in">Detalhes da <em>Celebração</em></h2>
+      <div class="ornament-line fade-in">❧</div>
+
+      <div class="info-cards">
+        <div class="info-card fade-in">
+          <div class="info-card-icon">📅</div>
+          <div class="info-card-label">Data</div>
+          <div class="info-card-value">10 de Outubro<br>de 2026</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-card-icon">🕖</div>
+          <div class="info-card-label">Horário</div>
+          <div class="info-card-value">17:30</div>
+          <div class="info-card-sub">Pontualmente</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-card-icon">⛪</div>
+          <div class="info-card-label">Local</div>
+          <div class="info-card-value">Capela São<br>Francisco Xavier</div>
+          <div class="info-card-sub">Almirante Tamandaré, PR</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-card-icon">👗</div>
+          <div class="info-card-label">Mulheres<br>Traje social obrigatório</div>
+          <div class="info-card-value">Não utilizar azul claro ou branco</div>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-card-icon">🤵</div>
+          <div class="info-card-label">Homens<br />Traje social obrigatório</div>
+          <div class="info-card-value">Não utilizar azul escuro</div>
+        </div>
+      </div>
+
+      <a class="btn-maps fade-in"
+        href="https://www.google.com/maps/place/Capela+S%C3%A3o+Francisco+Xavier/@-25.3656039,-49.2980614,787m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94dce0c5ef375d6b:0xc8039996294b7f28!8m2!3d-25.3656039!4d-49.2954865!16s%2Fg%2F1yfjmwx99?entry=ttu&g_ep=EgoyMDI2MDgwNC4wIKXMDSoASAFQAw%3D%3D"
+        target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+          <circle cx="12" cy="9" r="2.5" />
+        </svg>
+        Ver no Google Maps
+      </a>
+
+      <!-- Countdown -->
+      <div class="countdown-wrap fade-in">
+        <p class="countdown-label-title">Faltam</p>
+        <div id="countdown"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════=
+       SEÇÃO 3: PAGAMENTO E REGRAS (INSERIDO)
+══════════════════════════════ -->
+    <section id="pagamento-regras">
+      <div class="section-inner" style="text-align:center">
+        <span class="section-tag fade-in">Pagamento</span>
+        <h2 class="section-title fade-in">Pagamento</h2>
+        <div class="ornament-line fade-in">❧</div>
+
+        <div class="info-cards">
+          <div class="info-card fade-in">
+            <div class="info-card-icon">⏰</div>
+            <div class="info-card-label">Data para pagamento</div>
+            <div class="info-card-value">Até 15/09</div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-card-icon">💸</div>
+            <div class="info-card-label">Valor por pessoa</div>
+            <div class="info-card-value">R$ 95,00</div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-card-icon">👶</div>
+            <div class="info-card-label">Crianças</div>
+            <div class="info-card-value">Até 10 anos não pagam</div>
+          </div>
+          <div class="info-card fade-in">
+            <div class="info-card-icon">🎉</div>
+            <div class="info-card-label">Recepção</div>
+            <div class="info-card-value">No salão da capela</div>
+          </div>
+        </div>
+
+        <div class="payment-actions fade-in">
+          <button class="btn-pay-asaas" onclick="PixManualModal.open()" id="btn-realizar-pagamento-pix">
+            Pagamento PIX
+          </button>
+          <button class="btn-pay-asaas" onclick="App.showCreditContact()" id="btn-realizar-pagamento-cartao">
+            Pagamento Cartão de Crédito
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════=
+       SEÇÃO 3: CONFIRMAÇÃO / RSVP
+  ══════════════════════════════ -->
+    <section id="confirmacao">
+    <div class="section-inner" style="text-align:center">
+      <span class="section-tag fade-in">Lista de presentes</span>
+      <h2 class="section-title fade-in">É uma <em>Honra</em> Tê-lo(a) Conosco</h2>
+      <p class="section-subtitle fade-in">Segue a baixo uma lista de presentes<br>Para nos presentiar basta selecionar um item da lista e clicar em "Comprar"</p>
+
+      <div class="gift-list fade-in">
+        <div class="gift-item" data-gift-id="1" data-pix-link="" data-cc-link="https://www.asaas.com/c/m5z6oyfnl5tgk4il">
+          <div class="gift-info">
+            <img src="presente1.webp" alt="Presente 1" />
+            <h3>Garrafa Térmica Milano</h3>
+            <p>R$ 39,90</p>
+            <button class="btn-buy" data-gift-id="1" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="2" data-pix-link="" data-cc-link="https://www.asaas.com/c/pp5jsjyphrtcrka5">
+          <div class="gift-info">
+            <img src="presente2.webp" alt="Presente 2" />
+            <h3>Jogo de Facas Tramontina</h3>
+            <p>R$ 29,90 </p>
+            <button class="btn-buy" data-gift-id="2" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="3" data-pix-link="" data-cc-link="https://www.asaas.com/c/p46wfako3dhngp4e">
+          <div class="gift-info">
+            <img src="presente3.webp" alt="Presente 3" />
+            <h3>Lixeira Aço Inox Loop</h3>
+            <p>R$ 129,90</p>
+            <button class="btn-buy" data-gift-id="3" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="4" data-pix-link="" data-cc-link="https://www.asaas.com/c/f1akobvhblxpq6gz">
+          <div class="gift-info">
+            <img src="presente4.webp" alt="Presente 4" />
+            <h3>Tábua de Corte Vidro</h3>
+            <p>R$ 34,90</p>
+            <button class="btn-buy" data-gift-id="4" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="5" data-pix-link="" data-cc-link="https://www.asaas.com/c/88iyi85z5gkkew14">
+          <div class="gift-info">
+            <img src="presente5.webp" alt="Presente 5" />
+            <h3>Jogo Porta Condimentos</h3>
+            <p>R$ 79,90</p>
+            <button class="btn-buy" data-gift-id="5" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="6" data-pix-link="" data-cc-link="https://www.asaas.com/c/1s7t08pexcnn4sbt">
+          <div class="gift-info">
+            <img src="presente6.webp" alt="Presente 6" />
+            <h3>Jogo de Taça de Água Bico de Jaca</h3>
+            <p>R$ 109,90</p>
+            <button class="btn-buy" data-gift-id="6" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="7" data-pix-link="" data-cc-link="https://www.asaas.com/c/2qeiyezw0rma4s81">
+          <div class="gift-info">
+            <img src="7.webp" alt="Presente 7" />
+            <h3>Jogo de Bowls Sobremesa Pearl</h3>
+            <p>R$ 39,9,</p>
+            <button class="btn-buy" data-gift-id="7" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="8" data-pix-link="" data-cc-link="https://www.asaas.com/c/h7o3jaq0j4e6rgdj">
+          <div class="gift-info">
+            <img src="8.webp" alt="Presente 8" />
+            <h3>Xícara de Chá 200Ml com Pires</h3>
+            <p>R$ 24,90</p>
+            <button class="btn-buy" data-gift-id="8" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="9" data-pix-link="" data-cc-link="https://www.asaas.com/c/85nov3v3f1s4kno6">
+          <div class="gift-info">
+            <img src="9.webp" alt="Presente 9" />
+            <h3>Fruteira de Chão Tripla Eco</h3>
+            <p>R$ 189,90</p>
+            <button class="btn-buy" data-gift-id="9" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="10" data-pix-link="" data-cc-link="https://www.asaas.com/c/ok36n52b2wvzx1a7">
+          <div class="gift-info">
+            <img src="10.webp" alt="Presente 10" />
+            <h3>Jogo de Copo California</h3>
+            <p>R$ 29,90</p>
+            <button class="btn-buy" data-gift-id="10" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="11" data-pix-link="" data-cc-link="https://www.asaas.com/c/s4j0rp4pb29haumi">
+          <div class="gift-info">
+            <img src="11.webp" alt="Presente 11" />
+            <h3>Jogo de Jantar Tramontina Celeste</h3>
+            <p>R$ 249,90</p>
+            <button class="btn-buy" data-gift-id="11" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="12" data-pix-link="" data-cc-link="https://www.asaas.com/c/h8m5ldp9sm3f71xw">
+          <div class="gift-info">
+            <img src="12.webp" alt="Presente 12" />
+            <h3>Forma Starflon Max</h3>
+            <p>R$ 79,90</p>
+            <button class="btn-buy" data-gift-id="12" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="13" data-pix-link="" data-cc-link="https://www.asaas.com/c/nscsz1mr2fdan9aq">
+          <div class="gift-info">
+            <img src="13.webp" alt="Presente 13" />
+            <h3>Jogo de Xícara Café Clássica</h3>
+            <p>R$ 39,90</p>
+            <button class="btn-buy" data-gift-id="13" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="14" data-pix-link="" data-cc-link="https://www.asaas.com/c/47c7ccrg3jcin5n0">
+          <div class="gift-info">
+            <img src="14.webp" alt="Presente 14" />
+            <h3>Galheteiro com Suporte</h3>
+            <p>R$ 79,90</p>
+            <button class="btn-buy" data-gift-id="14" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="15" data-pix-link="" data-cc-link="https://www.asaas.com/c/3epwmygzfycw60um">
+          <div class="gift-info">
+            <img src="15.webp" alt="Presente 15" />
+            <h3>Jogo de Travessas Lisboa</h3>
+            <p>R$ 149,90</p>
+            <button class="btn-buy" data-gift-id="15" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="16" data-pix-link="" data-cc-link="https://www.asaas.com/c/0qrvrj16naal48yp">
+          <div class="gift-info">
+            <img src="16.webp" alt="Presente 15" />
+            <h3>Jogo de Prato Fundo Opalino</h3>
+            <p>R$ 89,90</p>
+            <button class="btn-buy" data-gift-id="16" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="17" data-pix-link="" data-cc-link="https://www.asaas.com/c/o8uclie30r25ba6d">
+          <div class="gift-info">
+            <img src="17.webp" alt="Presente 15" />
+            <h3>Jogo de Sobremesa Mônaco</h3>
+            <p>R$ 59,90</p>
+            <button class="btn-buy" data-gift-id="17" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="18" data-pix-link="" data-cc-link="https://www.asaas.com/c/o1mjhm1651318dm1">
+          <div class="gift-info">
+            <img src="18.webp" alt="Presente 15" />
+            <h3>Prato de Bolo com Pé Lines</h3>
+            <p>R$ 69,90</p>
+            <button class="btn-buy" data-gift-id="18" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="19" data-pix-link="" data-cc-link="https://www.asaas.com/c/ovvjb3bwhzlae534">
+          <div class="gift-info">
+            <img src="19.webp" alt="Presente 15" />
+            <h3>Xícara de Café com Pires Bahamas</h3>
+            <p>R$ 89,90</p>
+            <button class="btn-buy" data-gift-id="19" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="20" data-pix-link="" data-cc-link="https://www.asaas.com/c/r6k76bicd6sem5fh">
+          <div class="gift-info">
+            <img src="20.webp" alt="Presente 15" />
+            <h3>Jogo de Formas Fundo Removível</h3>
+            <p>R$ 79,90</p>
+            <button class="btn-buy" data-gift-id="20" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="21" data-pix-link="" data-cc-link="https://www.asaas.com/c/kb99deyfefbult96">
+          <div class="gift-info">
+            <img src="21.webp" alt="Presente 15" />
+            <h3>Cestos de Roupas Duplo Compartimento Flow</h3>
+            <p>R$ 159,90</p>
+            <button class="btn-buy" data-gift-id="21" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="22" data-pix-link="" data-cc-link="https://www.asaas.com/c/lr8ltczcqbts462k">
+          <div class="gift-info">
+            <img src="22.webp" alt="Presente 15" />
+            <h3>Jogo Bowl Melamina Gerbera</h3>
+            <p>R$ 48,90</p>
+            <button class="btn-buy" data-gift-id="22" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="23" data-pix-link="" data-cc-link="https://www.asaas.com/c/gt7rz3n48c5p5m91">
+          <div class="gift-info">
+            <img src="23.webp" alt="Presente 15" />
+            <h3>Conjunto de Facas Cepo Madri</h3>
+            <p>R$ 169,90</p>
+            <button class="btn-buy" data-gift-id="23" type="button">Comprar</button>
+          </div>
+        </div>
+        <div class="gift-item" data-gift-id="24" data-pix-link="" data-cc-link="https://www.asaas.com/c/ca5x60mgfhknx1uv">
+          <div class="gift-info">
+            <img src="24.webp" alt="Presente 15" />
+            <h3>Jogo de Facas Tramontina</h3>
+            <p>R$ 99,90</p>
+            <button class="btn-buy" data-gift-id="24" type="button">Comprar</button>
+          </div>
+        </div>
+      </div>
+
+  <div class="payment-modal-backdrop" id="payment-modal-backdrop" hidden>
+    <div class="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title">
+      <button type="button" class="payment-modal-close" aria-label="Fechar modal">×</button>
+      <h3 id="payment-modal-title">Escolha o tipo de pagamento</h3>
+      <p class="payment-modal-gift">Presente: <span id="payment-modal-gift-name"></span></p>
+
+      <div class="payment-method-options">
+        <button type="button" class="payment-method-btn" data-method="pix">PIX</button>
+        <button type="button" class="payment-method-btn" data-method="cartao">Cartão de Crédito</button>
+      </div>
+
+     
+      <input id="payment-link-input" class="payment-link-input" type="url" placeholder="" style="display: none;" />
+
+      <div class="payment-modal-actions" style="display: none;">
+        <button type="button" class="btn-cancel" data-action="cancel">Cancelar</button>
+        <button type="button" class="btn-save" data-action="save">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pagamento PIX Manual -->
+  <div class="pix-manual-backdrop" id="pix-manual-backdrop" hidden>
+    <div class="pix-manual-modal" role="dialog" aria-modal="true" aria-labelledby="pix-manual-title">
+      <button type="button" class="pix-manual-close" id="pix-manual-close" aria-label="Fechar modal de pagamento PIX">×</button>
+      
+      <h3 id="pix-manual-title" class="pix-manual-heading">Pagar com Pix</h3>
+      <p class="pix-manual-instruction">
+        Escaneie o QR Code com<br>
+        o aplicativo do seu banco
+      </p>
+
+      <div class="pix-manual-qr-container">
+        <img src="qr.jpeg" alt="QR Code para pagamento via Pix" class="pix-manual-qr" id="pix-manual-qr-img" />
+      </div>
+
+      <p class="pix-manual-ou">Ou copie o código Pix:</p>
+
+      <div class="pix-manual-copy-box">
+        <textarea readonly id="pix-manual-code" class="pix-manual-code-input">O código PIX será configurado no ambiente de produção após a publicação.</textarea>
+      </div>
+
+      <button type="button" class="pix-manual-btn-copy" id="pix-manual-btn-copy">
+        Copiar código Pix
+      </button>
+
+      <div class="pix-manual-status">
+        <span class="spinner-sm"></span> Após o pagamento, envie o comprovante via WhatsApp para um dos noivos.
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Contato Cartão de Crédito -->
+  <div class="cc-contact-backdrop" id="cc-contact-backdrop" hidden>
+    <div class="cc-contact-modal" role="dialog" aria-modal="true" aria-labelledby="cc-contact-title">
+      <button type="button" class="cc-contact-close" aria-label="Fechar">×</button>
+      <h3 id="cc-contact-title">Pagamento com Cartão</h3>
+      <p class="cc-contact-text">Para pagamento com cartão de crédito, por favor entre em contato com Danilo pelo WhatsApp.</p>
+      <a class="cc-contact-button" href="https://wa.me/41999214859">Abrir WhatsApp</a>
+      <button type="button" class="cc-contact-secondary" onclick="CreditContactModal.close()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-names">Amanda &amp; Danilo</div>
+    <p>10 · 10 · 2026 &nbsp;|&nbsp; Almirante Tamandaré – PR</p>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
