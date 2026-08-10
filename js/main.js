@@ -632,7 +632,7 @@ const PixManualModal = {
   },
 
   getCodeText() {
-    return (APP.PIX_PAYMENT.copiaECola || '').trim() || 'PIX ainda não configurado. Informe o código no arquivo js/constants.js.';
+    return (APP.PIX_PAYMENT.copiaECola || '').trim() || '00020101021126460014br.gov.bcb.pix0124dancosta.djs@hotmail.com5204000053039865802BR5912DANILO COSTA6013ALMIRANTE TAM62070503***630454B9';
   },
 
   copyCode() {
