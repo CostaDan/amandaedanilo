@@ -18,7 +18,7 @@ const APP = {
 
   PIX_PAYMENT: {
     qrCode: 'qr.jpeg',
-    copiaECola: '',
+    copiaECola: 'PIX ainda não configurado. Informe o código no arquivo js/constants.js.',
     valor: 95.00,
   },
 

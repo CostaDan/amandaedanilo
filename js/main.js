@@ -45,6 +45,14 @@ const App = {
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   },
 
+  scrollToSection(sectionId, offset = 96) {
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+    const navOffset = window.innerWidth <= 768 ? 84 : offset;
+    const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - navOffset);
+    window.scrollTo({ top, behavior: 'smooth' });
+  },
+
   checkPaymentReturn() {
     // Payment.handlePaymentReturn() é síncrono — apenas lê URL params para UI.
     // O banco é atualizado pelo webhook server-side, nunca aqui.
@@ -53,7 +61,7 @@ const App = {
     if (result.status === 'pago')    this.showStep('step-5-card');
     else if (result.status === 'falhou') this.showStep('step-error');
     else this.showStep('step-5-pending');
-    setTimeout(() => document.getElementById('confirmacao')?.scrollIntoView({ behavior: 'smooth' }), 400);
+    setTimeout(() => this.scrollToSection('confirmacao'), 400);
   },
 
   /* ── Flow Control ── */
@@ -560,7 +568,7 @@ const PaymentModal = {
     };
     const n = stepMap[id] || 1;
     document.querySelectorAll('.progress-dot').forEach((d, i) => d.classList.toggle('active', i < n));
-    setTimeout(() => document.getElementById('confirmacao')?.scrollIntoView({ behavior: 'smooth' }), 100);
+    setTimeout(() => App.scrollToSection('confirmacao'), 100);
   },
 
   goBack(stepId) { this.showStep(stepId); },
@@ -607,7 +615,7 @@ const PixManualModal = {
     
     if (imgEl) imgEl.src = APP.PIX_PAYMENT.qrCode;
     if (valueEl) valueEl.textContent = Payment.formatCurrency(APP.PIX_PAYMENT.valor);
-    if (this.codeInput) this.codeInput.value = APP.PIX_PAYMENT.copiaECola;
+    if (this.codeInput) this.codeInput.value = this.getCodeText();
 
     this.backdrop.hidden = false;
     document.body.classList.add('modal-open');
@@ -623,10 +631,14 @@ const PixManualModal = {
     }
   },
 
+  getCodeText() {
+    return (APP.PIX_PAYMENT.copiaECola || '').trim() || 'PIX ainda não configurado. Informe o código no arquivo js/constants.js.';
+  },
+
   copyCode() {
     if (!this.codeInput) return;
     
-    navigator.clipboard.writeText(APP.PIX_PAYMENT.copiaECola).then(() => {
+    navigator.clipboard.writeText(this.getCodeText()).then(() => {
       this.btnCopy.textContent = '✓ Código copiado!';
       this.btnCopy.classList.add('copied');
       
