@@ -39,10 +39,31 @@ const App = {
   },
 
   initScrollAnimations() {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    const reveal = (el) => el.classList.add('visible');
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.fade-in').forEach(reveal);
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            reveal(e.target);
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: '0px 0px 80px 0px' }
+    );
+
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    document.querySelectorAll('.fade-in').forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh && rect.bottom > 0) reveal(el);
+      obs.observe(el);
+    });
   },
 
   scrollToSection(sectionId, offset = 96) {
