@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 
-/* ── Variables ── */
+/* â”€â”€ Variables â”€â”€ */
 :root {
   --blue: #4A8FA8;
   --blue-deep: #2D6A85;
@@ -25,7 +25,7 @@
   --transition: .3s cubic-bezier(.4, 0, .2, 1);
 }
 
-/* ── Reset ── */
+/* â”€â”€ Reset â”€â”€ */
 *,
 *::before,
 *::after {
@@ -64,7 +64,7 @@ img {
   display: block;
 }
 
-/* ── Scroll Animations ── */
+/* â”€â”€ Scroll Animations â”€â”€ */
 .fade-in {
   opacity: 0;
   transform: translateY(28px);
@@ -84,9 +84,9 @@ img {
   }
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    NAVIGATION
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .nav {
   position: fixed;
   top: 0;
@@ -149,9 +149,9 @@ img {
   border-color: var(--blue-light);
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    HERO
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .hero {
   position: relative;
   height: 100vh;
@@ -197,7 +197,7 @@ img {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* conteúdo acima da imagem */
+/* conteÃºdo acima da imagem */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -315,9 +315,9 @@ img {
   opacity: .6;
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    SECTION BASE
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 section {
   padding: 90px 20px;
 }
@@ -375,9 +375,9 @@ section {
   background: var(--gold-light);
 }
 
-/* ════════════════════════════════
-   INFORMAÇÕES
-════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   INFORMAÃ‡Ã•ES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #informacoes {
   background: var(--cream);
 }
@@ -558,7 +558,7 @@ section {
   color: var(--text-mid);
 }
 
-/* Botão de compra: visual idêntico aos botões principais (.btn-pay-asaas) */
+/* BotÃ£o de compra: visual idÃªntico aos botÃµes principais (.btn-pay-asaas) */
 .btn-buy {
   width: 100%;
   padding: 12px 14px;
@@ -958,7 +958,7 @@ section {
   box-shadow: 0 8px 28px rgba(74, 143, 168, .45);
 }
 
-/* ── Countdown ── */
+/* â”€â”€ Countdown â”€â”€ */
 .countdown-wrap {
   margin: 48px auto 0;
   text-align: center;
@@ -1015,9 +1015,9 @@ section {
   padding-top: 14px;
 }
 
-/* ════════════════════════════════
-   RSVP / CONFIRMAÇÃO
-════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RSVP / CONFIRMAÃ‡ÃƒO
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #confirmacao {
   background: var(--blue-ultra);
 }
@@ -1714,9 +1714,9 @@ section {
   }
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FOOTER
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 footer {
   width: 100%;
   box-sizing: border-box;
@@ -1770,9 +1770,9 @@ footer a:hover {
   color: var(--text-mid);
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    RESPONSIVE
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @media (max-width: 768px) {
   .nav {
     padding: 12px 20px;
@@ -1843,9 +1843,9 @@ footer a:hover {
 }
 
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    MODAL PIX MANUAL
-════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pix-manual-backdrop {
   position: fixed;
   inset: 0;
@@ -2003,4 +2003,61 @@ footer a:hover {
   border-top-color: var(--blue-deep);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+}
+
+/* ==========================================================================
+   ESTILOS PARA PRESENTES ESCOLHIDOS (GIFTED)
+   ========================================================================== */
+
+/* Estado escolhido (gifted) */
+.gift-item[data-gifted="true"] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reduz opacidade da imagem e do texto do presente para indicar indisponibilidade */
+.gift-item[data-gifted="true"] .gift-info img,
+.gift-item[data-gifted="true"] .gift-info h3,
+.gift-item[data-gifted="true"] .gift-info p {
+  opacity: 0.6;
+  filter: grayscale(10%);
+  transition: opacity var(--transition);
+}
+
+/* Esconde o botão de compra */
+.gift-item[data-gifted="true"] .btn-buy {
+  display: none !important;
+}
+
+/* Ribbon diagonal atravessando o card */
+.gift-ribbon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%; /* Suficiente para cobrir a diagonal de qualquer tamanho de card */
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 12px 0;
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  z-index: 10;
+  pointer-events: none; /* Para não bloquear cliques, caso houver, mas o botão já some */
+  
+  /* Garantir que textos grandes não quebrem o layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsividade do Ribbon para telas menores */
+@media (max-width: 768px) {
+  .gift-ribbon {
+    font-size: 1.1rem;
+    padding: 8px 0;
+  }
 }

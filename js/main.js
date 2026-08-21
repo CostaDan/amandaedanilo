@@ -1,4 +1,4 @@
-/** Lógica principal da landing page — fluxo RSVP */
+/** LÃ³gica principal da landing page â€” fluxo RSVP */
 const App = {
   state: { step: 0, mode: null, pessoas: [], grupoId: null, valor: 0 },
   _countdownInterval: null,
@@ -17,7 +17,7 @@ const App = {
     const tick = () => {
       const diff = target - new Date();
       if (diff <= 0) {
-        el.innerHTML = '<div class="cdown-done">O grande dia chegou! 💍</div>';
+        el.innerHTML = '<div class="cdown-done">O grande dia chegou! ðŸ’</div>';
         clearInterval(this._countdownInterval);
         return;
       }
@@ -27,11 +27,11 @@ const App = {
       const s = Math.floor((diff % 60000) / 1000);
       el.innerHTML = `
         <div class="cd-item"><span class="cd-num">${d}</span><span class="cd-lbl">Dias</span></div>
-        <span class="cd-sep">·</span>
+        <span class="cd-sep">Â·</span>
         <div class="cd-item"><span class="cd-num">${pad(h)}</span><span class="cd-lbl">Horas</span></div>
-        <span class="cd-sep">·</span>
+        <span class="cd-sep">Â·</span>
         <div class="cd-item"><span class="cd-num">${pad(m)}</span><span class="cd-lbl">Min</span></div>
-        <span class="cd-sep">·</span>
+        <span class="cd-sep">Â·</span>
         <div class="cd-item"><span class="cd-num">${pad(s)}</span><span class="cd-lbl">Seg</span></div>`;
     };
     tick();
@@ -75,8 +75,8 @@ const App = {
   },
 
   checkPaymentReturn() {
-    // Payment.handlePaymentReturn() é síncrono — apenas lê URL params para UI.
-    // O banco é atualizado pelo webhook server-side, nunca aqui.
+    // Payment.handlePaymentReturn() Ã© sÃ­ncrono â€” apenas lÃª URL params para UI.
+    // O banco Ã© atualizado pelo webhook server-side, nunca aqui.
     const result = Payment.handlePaymentReturn();
     if (!result) return;
     if (result.status === 'pago')    this.showStep('step-5-card');
@@ -85,7 +85,7 @@ const App = {
     setTimeout(() => this.scrollToSection('confirmacao'), 400);
   },
 
-  /* ── Flow Control ── */
+  /* â”€â”€ Flow Control â”€â”€ */
   startFlow(mode) {
     this.state.mode   = mode;
     this.state.pessoas = [this._emptyPessoa()];
@@ -97,7 +97,7 @@ const App = {
 
   addPessoa() {
     if (this.state.pessoas.length >= APP.MAX_GROUP_SIZE) {
-      alert(`Máximo de ${APP.MAX_GROUP_SIZE} pessoas por grupo.`);
+      alert(`MÃ¡ximo de ${APP.MAX_GROUP_SIZE} pessoas por grupo.`);
       return;
     }
     this.state.pessoas.push(this._emptyPessoa());
@@ -114,7 +114,7 @@ const App = {
     this.renderPessoas();
   },
 
-  /** Escape de HTML — previne XSS ao inserir dados do usuário via innerHTML */
+  /** Escape de HTML â€” previne XSS ao inserir dados do usuÃ¡rio via innerHTML */
   _esc(str) {
     return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -126,8 +126,8 @@ const App = {
     c.innerHTML = this.state.pessoas.map((p, i) => `
       <div class="person-form fade-in visible" id="pf-${i}">
         <div class="person-form-header">
-          <span class="person-badge">${i === 0 ? '👑 Responsável' : `👤 Convidado ${i + 1}`}</span>
-          ${i > 0 ? `<button class="btn-remove-person" onclick="App.removePessoa(${i})" title="Remover">✕</button>` : ''}
+          <span class="person-badge">${i === 0 ? 'ðŸ‘‘ ResponsÃ¡vel' : `ðŸ‘¤ Convidado ${i + 1}`}</span>
+          ${i > 0 ? `<button class="btn-remove-person" onclick="App.removePessoa(${i})" title="Remover">âœ•</button>` : ''}
         </div>
         <div class="form-group">
           <label for="nome-${i}">Nome Completo *</label>
@@ -195,28 +195,28 @@ const App = {
     this._collectDOM();
     const errs = [];
     this.state.pessoas.forEach((p, i) => {
-      const lbl = i === 0 ? 'Responsável' : `Convidado ${i + 1}`;
+      const lbl = i === 0 ? 'ResponsÃ¡vel' : `Convidado ${i + 1}`;
       const nm  = document.getElementById(`nome-${i}`);
       const cp  = document.getElementById(`cpf-${i}`);
       const tl  = document.getElementById(`tel-${i}`);
       
-      // Nome sempre obrigatório
-      if (!Validators.validateName(p.nome)) { errs.push(`${lbl}: nome e sobrenome obrigatórios`); nm?.classList.add('error'); } else nm?.classList.remove('error');
+      // Nome sempre obrigatÃ³rio
+      if (!Validators.validateName(p.nome)) { errs.push(`${lbl}: nome e sobrenome obrigatÃ³rios`); nm?.classList.add('error'); } else nm?.classList.remove('error');
       
-      // CPF e Telefone obrigatórios apenas para o Responsável (i === 0)
+      // CPF e Telefone obrigatÃ³rios apenas para o ResponsÃ¡vel (i === 0)
       if (i === 0) {
-        if (!Validators.validateCPF(p.cpf)) { errs.push(`${lbl}: CPF inválido`); cp?.classList.add('error'); } else cp?.classList.remove('error');
-        if (!Validators.validatePhone(p.telefone)) { errs.push(`${lbl}: telefone inválido`); tl?.classList.add('error'); } else tl?.classList.remove('error');
+        if (!Validators.validateCPF(p.cpf)) { errs.push(`${lbl}: CPF invÃ¡lido`); cp?.classList.add('error'); } else cp?.classList.remove('error');
+        if (!Validators.validatePhone(p.telefone)) { errs.push(`${lbl}: telefone invÃ¡lido`); tl?.classList.add('error'); } else tl?.classList.remove('error');
       } else {
-        // Para convidados, se preencheu, valida. Se não, passa.
-        if (p.cpf && !Validators.validateCPF(p.cpf)) { errs.push(`${lbl}: CPF inválido`); cp?.classList.add('error'); } else cp?.classList.remove('error');
-        if (p.telefone && !Validators.validatePhone(p.telefone)) { errs.push(`${lbl}: telefone inválido`); tl?.classList.add('error'); } else tl?.classList.remove('error');
+        // Para convidados, se preencheu, valida. Se nÃ£o, passa.
+        if (p.cpf && !Validators.validateCPF(p.cpf)) { errs.push(`${lbl}: CPF invÃ¡lido`); cp?.classList.add('error'); } else cp?.classList.remove('error');
+        if (p.telefone && !Validators.validatePhone(p.telefone)) { errs.push(`${lbl}: telefone invÃ¡lido`); tl?.classList.add('error'); } else tl?.classList.remove('error');
       }
     });
 
     const errEl = document.getElementById('form-errors');
     if (errs.length) {
-      // FIX XSS: usar textContent em cada <li>, não innerHTML com dados brutos
+      // FIX XSS: usar textContent em cada <li>, nÃ£o innerHTML com dados brutos
       errEl.innerHTML = '';
       errs.forEach(msg => {
         const li = document.createElement('li');
@@ -242,17 +242,17 @@ const App = {
       rl.innerHTML = this.state.pessoas.map((p, i) => `
         <div class="review-item">
           <div class="review-left">
-            <span class="review-icon">${i === 0 ? '👑' : '👤'}</span>
+            <span class="review-icon">${i === 0 ? 'ðŸ‘‘' : 'ðŸ‘¤'}</span>
             <div>
               <strong>${this._esc(p.nome)}</strong>
-              <span class="review-meta">CPF: ${this._esc(Validators.formatCPF(p.cpf))} · ${this._esc(Validators.formatPhone(p.telefone))}</span>
+              <span class="review-meta">CPF: ${this._esc(Validators.formatCPF(p.cpf))} Â· ${this._esc(Validators.formatPhone(p.telefone))}</span>
             </div>
           </div>
           <span class="review-price">R$&nbsp;${APP.PRICE_PER_PERSON},00</span>
         </div>`).join('');
     }
     document.getElementById('total-value').textContent  = Payment.formatCurrency(this.state.valor);
-    document.getElementById('total-people').textContent = `${n} pessoa${n > 1 ? 's' : ''} × ${priceStr}`;
+    document.getElementById('total-people').textContent = `${n} pessoa${n > 1 ? 's' : ''} Ã— ${priceStr}`;
     this.showStep('step-3');
   },
 
@@ -267,16 +267,16 @@ const App = {
       if (result.isLocal) {
         const alertEl = document.getElementById('pay-alert');
         if (alertEl) {
-          alertEl.textContent = '⚠️ Banco de dados não configurado. Dados salvos localmente neste dispositivo.';
+          alertEl.textContent = 'âš ï¸ Banco de dados nÃ£o configurado. Dados salvos localmente neste dispositivo.';
           alertEl.style.display = 'block';
         }
       }
 
       this.state.grupoId = result.grupoId;
 
-      // Mostrar opções de pagamento disponíveis
+      // Mostrar opÃ§Ãµes de pagamento disponÃ­veis
       const hasPix = Config.isPixConfigured();
-      const hasCC  = !!(APP.WORKER_URL); // Worker disponível = cartão disponível
+      const hasCC  = !!(APP.WORKER_URL); // Worker disponÃ­vel = cartÃ£o disponÃ­vel
 
       document.getElementById('cc-option').style.display    = hasCC  ? 'block' : 'none';
       document.getElementById('pix-option').style.display   = hasPix ? 'block' : 'none';
@@ -290,17 +290,17 @@ const App = {
         select.innerHTML = '';
         for (let i = 1; i <= Math.min(3, Math.floor(this.state.valor / 5) || 1); i++) {
           const valParcela = this.state.valor / i;
-          select.innerHTML += `<option value="${i}">${i}x de ${Payment.formatCurrency(valParcela)}${i===1?' (à vista)':''}</option>`;
+          select.innerHTML += `<option value="${i}">${i}x de ${Payment.formatCurrency(valParcela)}${i===1?' (Ã  vista)':''}</option>`;
         }
       }
 
       this.showStep('step-4');
     } catch (e) {
-      alert('Erro ao processar sua inscrição. Tente novamente.');
+      alert('Erro ao processar sua inscriÃ§Ã£o. Tente novamente.');
       console.error('goToStep4:', e.message);
     } finally {
       btn.disabled    = false;
-      btn.textContent = 'Continuar para Pagamento →';
+      btn.textContent = 'Continuar para Pagamento â†’';
     }
   },
 
@@ -317,7 +317,7 @@ const App = {
     const installments = parseInt(document.getElementById('cc-installments').value, 10) || 1;
 
     if (!name || number.length < 13 || expiry.length !== 5 || cvv.length < 3) {
-      alert('Preencha corretamente todos os dados do cartão.');
+      alert('Preencha corretamente todos os dados do cartÃ£o.');
       return;
     }
 
@@ -348,13 +348,13 @@ const App = {
       const alertEl = document.getElementById('pay-alert');
       const msgs = {
         rate_limit:   'Muitas tentativas. Aguarde 1 minuto e tente novamente.',
-        network_error:'Erro de conexão. Verifique sua internet.',
-        no_worker_url:'Pagamento por cartão não configurado. Use PIX.',
+        network_error:'Erro de conexÃ£o. Verifique sua internet.',
+        no_worker_url:'Pagamento por cartÃ£o nÃ£o configurado. Use PIX.',
       };
-      alertEl.textContent   = msgs[result.reason] || result.error || 'Erro ao processar pagamento. Verifique os dados do cartão ou tente o PIX.';
+      alertEl.textContent   = msgs[result.reason] || result.error || 'Erro ao processar pagamento. Verifique os dados do cartÃ£o ou tente o PIX.';
       alertEl.style.display = 'block';
       btn.disabled  = false;
-      btn.innerHTML = '💳 Pagar com Cartão';
+      btn.innerHTML = 'ðŸ’³ Pagar com CartÃ£o';
     }
   },
 
@@ -372,7 +372,7 @@ const App = {
     } catch (e) {
       alert('Erro ao registrar. Tente novamente.');
       btn.disabled    = false;
-      btn.textContent = 'Já realizei o pagamento via PIX';
+      btn.textContent = 'JÃ¡ realizei o pagamento via PIX';
     }
   },
 
@@ -465,7 +465,7 @@ const PaymentModal = {
     const giftItem = button.closest('.gift-item');
     const giftTitle = giftItem?.querySelector('h3')?.textContent?.trim() || 'este presente';
     this.giftNameEl.textContent = giftTitle;
-    // Não pré-selecionar método — usuário escolherá PIX ou Cartão no modal
+    // NÃ£o prÃ©-selecionar mÃ©todo â€” usuÃ¡rio escolherÃ¡ PIX ou CartÃ£o no modal
     this.selectedMethod = '';
     this.linkInput.value = '';
     this.updateMethodButtons();
@@ -483,7 +483,7 @@ const PaymentModal = {
     this.updateMethodButtons();
   },
 
-  // Abre o modal para um `gift-item` específico (edição por produto)
+  // Abre o modal para um `gift-item` especÃ­fico (ediÃ§Ã£o por produto)
   openFor(giftItem, method) {
     if (!giftItem) return;
     this.currentGiftItem = giftItem;
@@ -501,14 +501,14 @@ const PaymentModal = {
   },
 
   selectMethod(method) {
-    // Se existe um botão/itens atuais, tentamos abrir o link configurado
+    // Se existe um botÃ£o/itens atuais, tentamos abrir o link configurado
     const giftItem = this.currentGiftItem || this.currentButton?.closest('.gift-item');
     if (giftItem) {
       if (method === 'pix') {
         if (giftItem.dataset.pixLink) {
           window.open(giftItem.dataset.pixLink, '_blank');
         } else {
-          // Usa o modal PIX manual global quando o presente não tem PIX próprio
+          // Usa o modal PIX manual global quando o presente nÃ£o tem PIX prÃ³prio
           this.close();
           PixManualModal.open();
           return;
@@ -520,13 +520,13 @@ const PaymentModal = {
         if (giftItem.dataset.ccLink) {
           window.open(giftItem.dataset.ccLink, '_blank');
         } else {
-          alert('Link de Cartão não configurado para este presente.');
+          alert('Link de CartÃ£o nÃ£o configurado para este presente.');
         }
         this.close();
         return;
       }
     }
-    // Caso não exista link configurado, apenas selecionamos o método para edição
+    // Caso nÃ£o exista link configurado, apenas selecionamos o mÃ©todo para ediÃ§Ã£o
     this.selectedMethod = method;
     this.updateMethodButtons();
   },
@@ -547,7 +547,7 @@ const PaymentModal = {
     }
 
     const link = this.linkInput.value.trim();
-    // Salvar o link no dataset do gift-item (prioriza edição por produto)
+    // Salvar o link no dataset do gift-item (prioriza ediÃ§Ã£o por produto)
     const target = this.currentGiftItem || this.currentButton?.closest('.gift-item');
     if (target) {
       if (this.selectedMethod === 'pix') target.dataset.pixLink = link;
@@ -572,7 +572,7 @@ const PaymentModal = {
     } catch (e) {
       alert('Erro ao registrar. Tente novamente.');
       btn.disabled    = false;
-      btn.textContent = 'Já realizei o pagamento via PIX';
+      btn.textContent = 'JÃ¡ realizei o pagamento via PIX';
     }
   },
 
@@ -623,7 +623,7 @@ const PixManualModal = {
       }
     });
 
-    // Listener de cópia
+    // Listener de cÃ³pia
     if (this.btnCopy) {
       this.btnCopy.addEventListener('click', () => this.copyCode());
     }
@@ -647,7 +647,7 @@ const PixManualModal = {
     this.backdrop.hidden = true;
     document.body.classList.remove('modal-open');
     if (this.btnCopy) {
-      this.btnCopy.textContent = 'Copiar código Pix';
+      this.btnCopy.textContent = 'Copiar cÃ³digo Pix';
       this.btnCopy.classList.remove('copied');
     }
   },
@@ -660,23 +660,23 @@ const PixManualModal = {
     if (!this.codeInput) return;
     
     navigator.clipboard.writeText(this.getCodeText()).then(() => {
-      this.btnCopy.textContent = '✓ Código copiado!';
+      this.btnCopy.textContent = 'âœ“ CÃ³digo copiado!';
       this.btnCopy.classList.add('copied');
       
       setTimeout(() => {
-        this.btnCopy.textContent = 'Copiar código Pix';
+        this.btnCopy.textContent = 'Copiar cÃ³digo Pix';
         this.btnCopy.classList.remove('copied');
       }, 3000);
     }).catch(err => {
-      console.error('Erro ao copiar código PIX', err);
+      console.error('Erro ao copiar cÃ³digo PIX', err);
       // Fallback
       this.codeInput.select();
       document.execCommand('copy');
-      this.btnCopy.textContent = '✓ Código copiado!';
+      this.btnCopy.textContent = 'âœ“ CÃ³digo copiado!';
       this.btnCopy.classList.add('copied');
       
       setTimeout(() => {
-        this.btnCopy.textContent = 'Copiar código Pix';
+        this.btnCopy.textContent = 'Copiar cÃ³digo Pix';
         this.btnCopy.classList.remove('copied');
       }, 3000);
     });
@@ -727,4 +727,45 @@ document.addEventListener('DOMContentLoaded', () => {
   PaymentModal.init();
   PixManualModal.init();
   CreditContactModal.init();
+  GiftRibbonManager.init();
 });
+
+/* ==========================================================================
+   GERENCIADOR DE PRESENTES ESCOLHIDOS (RIBBON)
+   ========================================================================== */
+const GiftRibbonManager = {
+  init() {
+    const gifts = document.querySelectorAll('.gift-item');
+    
+    gifts.forEach(gift => {
+      const isGifted = gift.getAttribute('data-gifted') === 'true';
+      if (isGifted) {
+        // Se o atributo não existir ou estiver vazio, exibe "Escolhido"
+        let giftedBy = gift.getAttribute('data-gifted-by');
+        if (!giftedBy || giftedBy.trim() === '') {
+          giftedBy = 'Escolhido';
+        }
+        
+        // Cria a faixa (ribbon)
+        const ribbon = document.createElement('div');
+        ribbon.className = 'gift-ribbon';
+        ribbon.textContent = giftedBy;
+        
+        // Adiciona a faixa ao card
+        gift.appendChild(ribbon);
+        
+        // Desabilita o botão de compra (embora esteja oculto pelo CSS)
+        const buyBtn = gift.querySelector('.btn-buy');
+        if (buyBtn) {
+          buyBtn.disabled = true;
+        }
+        
+        // Bloqueia interações no card (como cliques acidentais)
+        gift.addEventListener('click', (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        }, true);
+      }
+    });
+  }
+};
