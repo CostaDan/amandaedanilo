@@ -27,11 +27,11 @@ const App = {
       const s = Math.floor((diff % 60000) / 1000);
       el.innerHTML = `
         <div class="cd-item"><span class="cd-num">${d}</span><span class="cd-lbl">Dias</span></div>
-        <span class="cd-sep">Â·</span>
+        <span class="cd-sep">&middot;</span>
         <div class="cd-item"><span class="cd-num">${pad(h)}</span><span class="cd-lbl">Horas</span></div>
-        <span class="cd-sep">Â·</span>
+        <span class="cd-sep">&middot;</span>
         <div class="cd-item"><span class="cd-num">${pad(m)}</span><span class="cd-lbl">Min</span></div>
-        <span class="cd-sep">Â·</span>
+        <span class="cd-sep">&middot;</span>
         <div class="cd-item"><span class="cd-num">${pad(s)}</span><span class="cd-lbl">Seg</span></div>`;
     };
     tick();
